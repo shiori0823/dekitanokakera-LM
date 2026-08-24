@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>できたのかけら診断</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="kakera-shape" viewBox="0 0 100 100">
+      <path d="M52 3 L94 28 L88 76 L46 97 L8 70 L4 24 Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ===================== PAGE 1｜表紙 ===================== -->
+<section class="page cover">
+  <div class="shards">
+    <div class="shard" style="width:220px;top:-60px;left:-70px;transform:rotate(-18deg);">
+      <svg viewBox="0 0 100 100" width="220" height="220" fill="#F0876A"><use href="#kakera-shape"/></svg>
+    </div>
+    <div class="shard" style="width:150px;top:120px;right:-40px;transform:rotate(30deg);">
+      <svg viewBox="0 0 100 100" width="150" height="150" fill="#CE9A2E"><use href="#kakera-shape"/></svg>
+    </div>
+    <div class="shard" style="width:130px;bottom:160px;left:40px;transform:rotate(60deg);">
+      <svg viewBox="0 0 100 100" width="130" height="130" fill="#2F9188"><use href="#kakera-shape"/></svg>
+    </div>
+    <div class="shard" style="width:180px;bottom:-60px;right:-30px;transform:rotate(-10deg);">
+      <svg viewBox="0 0 100 100" width="180" height="180" fill="#6B74C4"><use href="#kakera-shape"/></svg>
+    </div>
+    <div class="shard" style="width:90px;top:46%;left:-30px;transform:rotate(15deg);">
+      <svg viewBox="0 0 100 100" width="90" height="90" fill="#5E9E5B"><use href="#kakera-shape"/></svg>
+    </div>
+  </div>
+  <div class="content">
+    <svg class="cover-mark" viewBox="0 0 100 100" fill="none">
+      <use href="#kakera-shape" fill="#FDEEE7" stroke="#F0876A" stroke-width="2.5"/>
+    </svg>
+    <div class="cover-eyebrow">DEKITA NO KAKERA SHINDAN</div>
+    <h1 class="cover-title">できたの<br><span class="accent">かけら</span>診断</h1>
+    <p class="cover-sub">「私、何もできてない」を<span class="arrow">→</span><span class="after">「私にもできてた」</span>に変える5分間</p>
+    <p class="cover-foot">今日のあなたにも、<br>きっと「できた」はある。</p>
+  </div>
+</section>
+
+<!-- ===================== PAGE 2｜導入 ===================== -->
+<section class="page intro">
+  <div class="shards">
+    <div class="shard" style="width:120px;top:60px;right:-30px;transform:rotate(20deg);">
+      <svg viewBox="0 0 100 100" width="120" height="120" fill="#F0876A"><use href="#kakera-shape"/></svg>
+    </div>
+    <div class="shard" style="width:100px;bottom:40px;left:-30px;transform:rotate(-25deg);">
+      <svg viewBox="0 0 100 100" width="100" height="100" fill="#6B74C4"><use href="#kakera-shape"/></svg>
+    </div>
+  </div>
+  <div class="content">
+    <div class="eyebrow">はじめに</div>
+    <div class="lines" style="margin-top:18px;">
+      <p>「今日も何もできなかった」と思っていませんか？</p>
+    </div>
+    <div class="lines" style="margin-top:14px;">
+      <p>仕事もした。</p>
+      <p>家のこともした。</p>
+      <p>誰かのためにも動いた。</p>
+      <p style="margin-top:10px;">それなのに一日の終わりには、</p>
+      <p style="color:var(--ink-soft);">「今日も何もできなかったな……」</p>
+      <p style="margin-top:10px;">そんなふうに思ってしまう。</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="lines">
+      <p>でも、もしかすると。</p>
+      <p style="margin-top:10px;">本当に「できなかった」のではなく、</p>
+      <p>すでにある「できた」を<br>まだ見つけられていないだけかもしれません。</p>
+    </div>
+
+    <div class="callout">
+      <span class="label">私はそれを、こう呼んでいます</span>
+      私は、毎日の中にある小さな「できた」を<br>「できたのかけら」と呼んでいます。
+    </div>
+
+    <div class="lines" style="margin-top:18px;">
+      <p>この診断は、あなたが<br>「できる人・できない人」を決めるものではありません。</p>
+      <p style="margin-top:10px;">あなたが今、どんな「できた」を見つけるのが得意なのか。</p>
+      <p>そして、今まで見えていなかった「できた」は何なのか。</p>
+      <p style="margin-top:10px;font-weight:700;">8つの質問から、一緒に探してみましょう。</p>
+    </div>
+
+    <div class="howto">
+      <div class="badge">答え方</div>
+      <div class="txt">
+        それぞれの質問で、<strong>「今の私なら、これを“できた”として見つけられそう」</strong>と思うものを1つ選んでください。<br>
+        正解も不正解もありません。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PAGE 3｜質問 ① ===================== -->
+<section class="page quiz">
+  <div class="content">
+    <div class="quiz-head">
+      <h2 class="section-title">できたのかけら診断 ①</h2>
+      <div class="part">Q1 &mdash; Q4</div>
+    </div>
+    <div class="q-grid">
+
+      <div class="q-card">
+        <span class="q-num">Q1</span>
+        <div class="q-title">予定の半分までできた日</div>
+        <div class="q-scene">やろうと思っていたことが、半分までできました。</div>
+        <div class="q-ask">どの「できた」が一番しっくりきますか？</div>
+        <div class="q-opts">
+          <div class="opt a"><span class="opt-badge">A</span><span class="opt-text">半分まで進められた</span></div>
+          <div class="opt b"><span class="opt-badge">B</span><span class="opt-text">まずやってみられた</span></div>
+          <div class="opt c"><span class="opt-badge">C</span><span class="opt-text">今日はここまで、と決められた</span></div>
+          <div class="opt d"><span class="opt-badge">D</span><span class="opt-text">今日も取り組めた</span></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <span class="q-num">Q2</span>
+        <div class="q-title">初めて挑戦した日</div>
+        <div class="q-scene">初めてのことに挑戦しました。思ったような結果にはなりませんでした。</div>
+        <div class="q-ask">それでも見つけられそうな「できた」は？</div>
+        <div class="q-opts">
+          <div class="opt a"><span class="opt-badge">A</span><span class="opt-text">経験をひとつ積めた</span></div>
+          <div class="opt b"><span class="opt-badge">B</span><span class="opt-text">まず挑戦できた</span></div>
+          <div class="opt c"><span class="opt-badge">C</span><span class="opt-text">今の自分を知ることができた</span></div>
+          <div class="opt d"><span class="opt-badge">D</span><span class="opt-text">次につながる一歩にできた</span></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <span class="q-num">Q3</span>
+        <div class="q-title">やらないことを決めた日</div>
+        <div class="q-scene">今日は予定がいっぱい。全部はできそうにないので、やることを一つ減らしました。</div>
+        <div class="q-ask">そんな日の「できた」は？</div>
+        <div class="q-opts">
+          <div class="opt a"><span class="opt-badge">A</span><span class="opt-text">今日できることは進められた</span></div>
+          <div class="opt b"><span class="opt-badge">B</span><span class="opt-text">いつもと違うやり方を試せた</span></div>
+          <div class="opt c"><span class="opt-badge">C</span><span class="opt-text">「これはやらない」と自分で決められた</span></div>
+          <div class="opt d"><span class="opt-badge">D</span><span class="opt-text">明日も続けられる余白をつくれた</span></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <span class="q-num">Q4</span>
+        <div class="q-title">1日できなかった日</div>
+        <div class="q-scene">3日続けたあと、4日目はできませんでした。でも、5日目にまた始めました。</div>
+        <div class="q-ask">どの「できた」を見つけますか？</div>
+        <div class="q-opts">
+          <div class="opt a"><span class="opt-badge">A</span><span class="opt-text">3日間積み重ねられた</span></div>
+          <div class="opt b"><span class="opt-badge">B</span><span class="opt-text">もう一度やってみられた</span></div>
+          <div class="opt c"><span class="opt-badge">C</span><span class="opt-text">できない日も受け入れられた</span></div>
+          <div class="opt d"><span class="opt-badge">D</span><span class="opt-text">止まっても、また戻れた</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="folio">できたのかけら診断<span class="dot"></span>3 / 8</div>
+</section>
+
+<!-- ===================== PAGE 4｜質問 ② ===================== -->
+<section class="page quiz">
+  <div class="content">
+    <div class="quiz-head">
+      <h2 class="section-title">できたのかけら診断 ②</h2>
+      <div class="part">Q5 &mdash; Q8</div>
+    </div>
+    <div class="q-grid">
+
+      <div class="q-card">
+        <span class="q-num">Q5</span>
+        <div class="q-title">誰かに頼った日</div>
+        <div class="q-scene">一人では難しくて、誰かに助けてもらいました。</div>
+        <div class="q-ask">そんな日の「できた」は？</div>
+        <div class="q-opts">
+          <div class="opt a"><span class="opt-badge">A</span><span class="opt-text">力を借りて前に進められた</span></div>
+          <div class="opt b"><span class="opt-badge">B</span><span class="opt-text">勇気を出して相談できた</span></div>
+          <div class="opt c"><span class="opt-badge">C</span><span class="opt-text">一人で抱えず「頼る」と選べた</span></div>
+          <div class="opt d"><span class="opt-badge">D</span><span class="opt-text">力を借りながら続けられた</span></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <span class="q-num">Q6</span>
+        <div class="q-title">まだ結果が出ていないとき</div>
+        <div class="q-scene">目標に向かって取り組んでいます。でも、まだ大きな結果は出ていません。</div>
+        <div class="q-ask">今の自分にある「できた」は？</div>
+        <div class="q-opts">
+          <div class="opt a"><span class="opt-badge">A</span><span class="opt-text">少しずつ前に進めている</span></div>
+          <div class="opt b"><span class="opt-badge">B</span><span class="opt-text">結果が出る前から行動できている</span></div>
+          <div class="opt c"><span class="opt-badge">C</span><span class="opt-text">自分に合う方法を選びながら進めている</span></div>
+          <div class="opt d"><span class="opt-badge">D</span><span class="opt-text">結果が出る途中でも続けている</span></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <span class="q-num">Q7</span>
+        <div class="q-title">久しぶりに再開した日</div>
+        <div class="q-scene">途中でやめていたことを、今日少しだけ再開しました。</div>
+        <div class="q-ask">そんな日の「できた」は？</div>
+        <div class="q-opts">
+          <div class="opt a"><span class="opt-badge">A</span><span class="opt-text">少しでも前に進められた</span></div>
+          <div class="opt b"><span class="opt-badge">B</span><span class="opt-text">「もう一度」と行動できた</span></div>
+          <div class="opt c"><span class="opt-badge">C</span><span class="opt-text">今できる量から始めると決められた</span></div>
+          <div class="opt d"><span class="opt-badge">D</span><span class="opt-text">一度止まったところから戻れた</span></div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <span class="q-num">Q8</span>
+        <div class="q-title">今日を振り返って</div>
+        <div class="q-scene">今日一日を思い出してみてください。</div>
+        <div class="q-ask">あなたが一番「これもできた！」と思えるのは？</div>
+        <div class="q-opts">
+          <div class="opt a"><span class="opt-badge">A</span><span class="opt-text">小さくても前に進めたこと</span></div>
+          <div class="opt b"><span class="opt-badge">B</span><span class="opt-text">勇気を出してやってみたこと</span></div>
+          <div class="opt c"><span class="opt-badge">C</span><span class="opt-text">自分で選んだり決めたりできたこと</span></div>
+          <div class="opt d"><span class="opt-badge">D</span><span class="opt-text">続けたこと・また戻れたこと</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="folio">できたのかけら診断<span class="dot"></span>4 / 8</div>
+</section>
+
+<!-- ===================== PAGE 5｜集計 ===================== -->
+<section class="page result">
+  <div class="content">
+    <div class="eyebrow">RESULT</div>
+    <h2 class="section-title" style="margin-top:16px;">あなたの「できたのかけら」は？</h2>
+    <p class="lead" style="margin-top:6px;font-size:22px;">選んだアルファベットを数えてみましょう。</p>
+
+    <div class="tally-grid">
+      <div class="tally-card a">
+        <div class="icon">🏆</div>
+        <div><div class="name">A &nbsp;成果のかけら</div></div>
+        <div class="count"><div class="num-box">&nbsp;</div><span class="unit">個</span></div>
+      </div>
+      <div class="tally-card b">
+        <div class="icon">🌱</div>
+        <div><div class="name">B &nbsp;挑戦のかけら</div></div>
+        <div class="count"><div class="num-box">&nbsp;</div><span class="unit">個</span></div>
+      </div>
+      <div class="tally-card c">
+        <div class="icon">🌿</div>
+        <div><div class="name">C &nbsp;選択のかけら</div></div>
+        <div class="count"><div class="num-box">&nbsp;</div><span class="unit">個</span></div>
+      </div>
+      <div class="tally-card d">
+        <div class="icon">🔄</div>
+        <div><div class="name">D &nbsp;継続のかけら</div></div>
+        <div class="count"><div class="num-box">&nbsp;</div><span class="unit">個</span></div>
+      </div>
+    </div>
+
+    <div class="qa-row">
+      <div class="qa-box">
+        <div class="q">一番多かったものは？</div>
+        <div class="a">あなたが今、見つけるのが得意な<br>「できたのかけら」です。</div>
+      </div>
+      <div class="qa-box">
+        <div class="q">そして……一番少なかったものは？</div>
+        <div class="a">あなたに次に見つけてほしい<br>「できたのかけら」です。</div>
+      </div>
+    </div>
+
+    <div class="rule">
+      <div style="font-size:20px;font-weight:700;color:var(--coral-dark);">ここで大切なことがあります。</div>
+      <div class="not-eq" style="margin-top:14px;">
+        <div>多い<span class="x">＝できる</span></div>
+        <div>少ない<span class="x">＝できない</span></div>
+      </div>
+      <p style="font-weight:700;">ではありません。</p>
+      <p>少なかったかけらも、あなたの毎日の中にもうあります。<br>今はまだ、少し見つけにくいだけ。</p>
+      <p>同じ数があったら、どちらもあなたの結果です。<br>一つに決めなくて大丈夫です。</p>
+    </div>
+  </div>
+  <div class="folio">できたのかけら診断<span class="dot"></span>5 / 8</div>
+</section>
+
+<!-- ===================== PAGE 6｜4つのかけら ===================== -->
+<section class="page types">
+  <div class="content">
+    <div class="eyebrow">4つの「できたのかけら」</div>
+    <div class="type-grid" style="margin-top:22px;">
+
+      <div class="type-card a">
+        <div class="head"><span class="icon">🏆</span><span class="name">A｜成果のかけら</span></div>
+        <div class="power">「前に進めた」を見つける力</div>
+        <div class="examples">5分できた。一つ終わった。昨日より少し進んだ。</div>
+        <div class="body">大きなゴールに到達するまでの途中にも、たくさんの「できた」があります。</div>
+        <div class="punch">ゴールに着いていなくても、<br>今日もちゃんと前に進んでいる。</div>
+      </div>
+
+      <div class="type-card b">
+        <div class="head"><span class="icon">🌱</span><span class="name">B｜挑戦のかけら</span></div>
+        <div class="power">「やってみた」を見つける力</div>
+        <div class="examples">初めてやった。勇気を出した。一歩踏み出した。</div>
+        <div class="body">結果が思い通りにならなくても、「やってみた」という事実はなくなりません。</div>
+        <div class="punch">結果が出る前にも、<br>「できた」はある。</div>
+      </div>
+
+      <div class="type-card c">
+        <div class="head"><span class="icon">🌿</span><span class="name">C｜選択のかけら</span></div>
+        <div class="power">「自分で選べた」を見つける力</div>
+        <div class="examples">休んだ。頼った。断った。予定を変えた。</div>
+        <div class="body">頑張るだけが「できた」ではありません。</div>
+        <div class="punch">頑張らないことを選べた日にも、<br>「できた」はある。</div>
+      </div>
+
+      <div class="type-card d">
+        <div class="head"><span class="icon">🔄</span><span class="name">D｜継続のかけら</span></div>
+        <div class="power">「続けた・戻れた」を見つける力</div>
+        <div class="examples">今日もやった。少し続けた。一度止まったけれど、また始めた。</div>
+        <div class="body">毎日完璧に続けることだけが継続ではありません。</div>
+        <div class="punch">止まらないことより、<br>止まっても戻れること。</div>
+      </div>
+
+    </div>
+
+    <div class="next-box">
+      <div class="label">あなたに次に見つけてほしいのは……</div>
+      <div class="blank"></div>
+      <div class="suffix">のかけら</div>
+    </div>
+    <div class="reassure">これは、あなたに足りないものではありません。もう持っているけれど、今まで少し見つけにくかった「できた」です。</div>
+  </div>
+  <div class="folio">できたのかけら診断<span class="dot"></span>6 / 8</div>
+</section>
+
+<!-- ===================== PAGE 7｜今日のかけらを探そう ===================== -->
+<section class="page workbook">
+  <div class="shards">
+    <div class="shard" style="width:110px;top:50px;right:-20px;transform:rotate(10deg);">
+      <svg viewBox="0 0 100 100" width="110" height="110" fill="#F0876A"><use href="#kakera-shape"/></svg>
+    </div>
+  </div>
+  <div class="content">
+    <div class="eyebrow">WORK</div>
+    <h2 class="section-title" style="margin-top:16px;">今日の「できたのかけら」を探そう</h2>
+    <p class="lead" style="margin-top:10px;font-size:22px;">診断はここで終わりではありません。最後に、今日のあなたの中から<strong>3つの「できたのかけら」</strong>を探してみましょう。</p>
+
+    <div class="prompts">
+      <div class="prompt">
+        <div class="ptitle"><span class="pnum">①</span><span class="ptxt">今日、少しでも前に進めたことは？</span></div>
+        <div class="pline"></div>
+      </div>
+      <div class="prompt">
+        <div class="ptitle"><span class="pnum">②</span><span class="ptxt">今日、やってみた・選べた・戻れたことは？</span></div>
+        <div class="pline"></div>
+      </div>
+      <div class="prompt">
+        <div class="ptitle"><span class="pnum">③</span><span class="ptxt">診断する前なら「できた」と思わなかったけれど、<br>今なら「これもできたかも」と思えることは？</span></div>
+        <div class="pline"></div>
+      </div>
+    </div>
+
+    <div class="hint-title">大きなことでなくて大丈夫。</div>
+    <div class="hint-chips">
+      <span class="chip">朝起きた</span>
+      <span class="chip">ご飯を食べた</span>
+      <span class="chip">仕事に行った</span>
+      <span class="chip">誰かの話を聞いた</span>
+      <span class="chip">疲れていることに気づいた</span>
+      <span class="chip">誰かに頼った</span>
+      <span class="chip">今日はやらないと決めた</span>
+      <span class="chip">一度止まったことを、また始めた</span>
+    </div>
+    <p style="margin-top:18px;font-size:21px;font-weight:700;color:var(--coral-dark);">それも全部、「できたのかけら」です。</p>
+  </div>
+  <div class="folio">できたのかけら診断<span class="dot"></span>7 / 8</div>
+</section>
+
+<!-- ===================== PAGE 8｜結び ===================== -->
+<section class="page closing">
+  <div class="shards">
+    <div class="shard" style="width:200px;top:-50px;right:-60px;transform:rotate(-15deg);">
+      <svg viewBox="0 0 100 100" width="200" height="200" fill="#CE9A2E"><use href="#kakera-shape"/></svg>
+    </div>
+    <div class="shard" style="width:140px;bottom:-40px;left:-40px;transform:rotate(20deg);">
+      <svg viewBox="0 0 100 100" width="140" height="140" fill="#2F9188"><use href="#kakera-shape"/></svg>
+    </div>
+  </div>
+  <div class="content">
+    <div class="eyebrow">最後に</div>
+    <h2 class="section-title" style="margin-top:12px;font-size:32px;">ほら、今日も「できた」はあった。</h2>
+
+    <div class="msg" style="margin-top:24px;">
+      <p>3つ、見つかりましたか？</p>
+      <p style="margin-top:10px;">もし一つでも見つかったなら、あなたは今日、「何もできなかった」わけではありません。</p>
+      <p class="soft" style="margin-top:6px;">今まで見えていなかっただけ。</p>
+
+      <p style="margin-top:20px;">私自身も以前は、一日の終わりに、<span class="soft">「今日も何もできなかった」</span>と思っていました。</p>
+      <p style="margin-top:14px;">でも振り返ってみると、競技でも、仕事でも、子育てでも、うまくいった日だけではなく、</p>
+      <p class="soft" style="margin-top:8px;">挑戦した日。止まった日。休んだ日。もう一度戻った日。</p>
+      <p style="margin-top:8px;">そこにも、たくさんの小さな「できた」がありました。私はそれを、「できたのかけら」と呼んでいます。</p>
+
+      <p style="margin-top:18px;">小さな「できた」を見つけていくと、「私、何もできてない」が、<strong style="color:var(--coral-dark);">「あれ？ 私にもできてた」</strong>に変わっていく。</p>
+      <p style="margin-top:14px;">その積み重ねが、いつか<strong style="color:var(--coral-dark);">「私なら、またできる。」</strong>という自分への信頼につながっていきます。</p>
+    </div>
+
+    <div class="final">
+      <p>できたが、新しく増えたわけではありません。<br>今まで見えていなかった「できた」が、見えるようになっただけ。</p>
+      <p>あなたの毎日の中には、もう「できたのかけら」があります。<br>あとは、それを見つけていくだけです。</p>
+    </div>
+  </div>
+  <div class="folio">できたのかけら診断<span class="dot"></span>8 / 8</div>
+</section>
+
+</body>
+</html>

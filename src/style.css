@@ -1,0 +1,497 @@
+/* できたのかけら診断 — スタイルシート */
+
+@font-face {
+  font-family: 'Zen Maru Gothic';
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src: url('../assets/fonts/ZenMaruGothic-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Zen Maru Gothic';
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+  src: url('../assets/fonts/ZenMaruGothic-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Zen Maru Gothic';
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+  src: url('../assets/fonts/ZenMaruGothic-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Zen Maru Gothic';
+  font-weight: 900;
+  font-style: normal;
+  font-display: block;
+  src: url('../assets/fonts/ZenMaruGothic-900.woff2') format('woff2');
+}
+
+:root {
+  --cream: #FFF8F0;
+  --paper: #FFFDFA;
+  --ink: #4A3B30;
+  --ink-soft: #8A7A6C;
+  --ink-faint: #B7A99A;
+  --line: #EFE2D3;
+
+  --coral: #F0876A;
+  --coral-dark: #DD6E4E;
+  --coral-bg: #FDEEE7;
+
+  --gold: #CE9A2E;
+  --gold-bg: #FFF3DA;
+  --gold-line: #F0DBA9;
+
+  --green: #5E9E5B;
+  --green-bg: #E9F5E7;
+  --green-line: #C6E4C1;
+
+  --teal: #2F9188;
+  --teal-bg: #E1F4F1;
+  --teal-line: #BEE4DE;
+
+  --indigo: #6B74C4;
+  --indigo-bg: #ECEDFB;
+  --indigo-line: #CBCEF0;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #E9E1D6;
+}
+
+body {
+  font-family: 'Zen Maru Gothic', 'IPAGothic', 'Noto Sans JP', sans-serif;
+  color: var(--ink);
+}
+
+.page {
+  position: relative;
+  width: 1080px;
+  height: 1350px;
+  overflow: hidden;
+  background: var(--cream);
+  page-break-after: always;
+}
+
+/* ---------- 装飾：かけらモチーフ ---------- */
+.shards { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.shard {
+  position: absolute;
+  opacity: 0.16;
+}
+.shard svg { display: block; }
+
+/* ---------- 共通パーツ ---------- */
+.content { position: relative; z-index: 1; height: 100%; }
+
+.folio {
+  position: absolute;
+  bottom: 44px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  z-index: 2;
+}
+.folio .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--ink-faint); }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--coral-dark);
+}
+.eyebrow::before, .eyebrow::after {
+  content: '';
+  width: 26px;
+  height: 2px;
+  background: var(--coral);
+  opacity: 0.5;
+}
+
+/* ---------- チェックボックス選択肢 ---------- */
+.opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+}
+.opt + .opt { margin-top: 10px; }
+.opt-badge {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 22px;
+  color: #fff;
+  background: var(--ink-faint);
+}
+.opt-text {
+  font-size: 25px;
+  line-height: 1.5;
+  padding-top: 4px;
+  font-weight: 500;
+}
+.opt.a .opt-badge { background: var(--gold); }
+.opt.b .opt-badge { background: var(--green); }
+.opt.c .opt-badge { background: var(--teal); }
+.opt.d .opt-badge { background: var(--indigo); }
+
+/* ---------- 質問カード ---------- */
+.q-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 22px;
+}
+.q-card {
+  background: var(--paper);
+  border-radius: 26px;
+  padding: 30px 32px;
+  border: 1.5px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.q-num {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--coral);
+  padding: 5px 16px 5px 12px;
+  border-radius: 999px;
+  align-self: flex-start;
+}
+.q-title {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.q-scene {
+  margin-top: 6px;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.q-ask {
+  margin-top: 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--coral-dark);
+}
+.q-opts { margin-top: 12px; }
+.q-opts .opt { padding: 9px 16px; }
+.q-opts .opt-badge { width: 29px; height: 29px; font-size: 16px; border-radius: 8px; }
+.q-opts .opt-text { font-size: 17px; padding-top: 0px; line-height: 1.4; }
+.q-opts .opt + .opt { margin-top: 7px; }
+
+/* ---------- 見出し類 ---------- */
+h1, h2, h3 { margin: 0; font-weight: 900; }
+
+.section-title {
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.lead {
+  font-size: 24px;
+  line-height: 2.05;
+  color: var(--ink);
+  font-weight: 500;
+}
+.lead strong {
+  font-weight: 700;
+  color: var(--coral-dark);
+}
+
+.quote-box {
+  background: var(--coral-bg);
+  border-radius: 24px;
+  padding: 32px 40px;
+  font-size: 26px;
+  line-height: 1.85;
+  font-weight: 700;
+  color: var(--coral-dark);
+}
+
+.note-box {
+  background: var(--paper);
+  border: 1.5px dashed var(--ink-faint);
+  border-radius: 20px;
+  padding: 26px 34px;
+  font-size: 21px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+/* ===================== PAGE 1｜表紙 ===================== */
+.cover .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 90px;
+}
+.cover-mark {
+  width: 128px;
+  height: 128px;
+  margin-bottom: 42px;
+}
+.cover-eyebrow {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  color: var(--coral-dark);
+  margin-bottom: 28px;
+}
+.cover-title {
+  font-size: 92px;
+  font-weight: 900;
+  line-height: 1.28;
+  color: var(--ink);
+}
+.cover-title .accent { color: var(--coral-dark); }
+.cover-sub {
+  margin-top: 40px;
+  font-size: 30px;
+  line-height: 1.9;
+  font-weight: 700;
+  color: var(--ink);
+}
+.cover-sub .arrow { color: var(--ink-faint); font-weight: 500; padding: 0 6px; }
+.cover-sub .after { color: var(--coral-dark); }
+.cover-foot {
+  margin-top: 56px;
+  font-size: 25px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+/* ===================== PAGE 2｜導入 ===================== */
+.intro .content { padding: 64px 92px 0; }
+.intro .lines { font-size: 21px; line-height: 1.55; font-weight: 500; color: var(--ink); }
+.intro .lines p { margin: 0 0 4px; }
+.intro .divider { height: 2px; margin: 20px 0; background: linear-gradient(to right, var(--coral), transparent); width: 200px; }
+.intro .callout {
+  margin-top: 20px;
+  background: var(--coral-bg);
+  border-radius: 22px;
+  padding: 22px 32px;
+  font-size: 21px;
+  line-height: 1.5;
+  font-weight: 700;
+  color: var(--coral-dark);
+}
+.intro .callout .label {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--coral);
+  margin-bottom: 6px;
+}
+.intro .howto {
+  margin-top: 20px;
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+}
+.intro .howto .badge {
+  flex: none;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: var(--coral);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+}
+.intro .howto .txt { font-size: 18px; line-height: 1.55; color: var(--ink-soft); font-weight: 500; padding-top: 4px;}
+.intro .howto .txt strong { color: var(--ink); font-weight: 700; }
+
+/* ===================== PAGE 3-4｜質問 ===================== */
+.quiz .content { padding: 56px 64px; display: flex; flex-direction: column; height: 100%; }
+.quiz .quiz-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; }
+.quiz .quiz-head .section-title { font-size: 34px; }
+.quiz .quiz-head .part { font-size: 22px; font-weight: 700; color: var(--ink-faint); }
+.quiz .q-grid { flex: 1; }
+
+/* ===================== PAGE 5｜集計 ===================== */
+.result .content { padding: 84px 92px; }
+.tally-grid {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.tally-card {
+  border-radius: 26px;
+  padding: 28px 30px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border: 1.5px solid transparent;
+}
+.tally-card .icon { font-size: 46px; line-height: 1; }
+.tally-card .name { font-size: 22px; font-weight: 700; margin-top: 4px; }
+.tally-card .count { margin-left: auto; display: flex; align-items: baseline; gap: 6px; }
+.tally-card .count .num-box {
+  width: 58px; height: 58px;
+  border-radius: 14px;
+  background: var(--paper);
+  border: 2px solid var(--ink-faint);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; font-weight: 700; color: var(--ink-faint);
+}
+.tally-card .count .unit { font-size: 20px; color: var(--ink-soft); font-weight: 700; }
+.tally-card.a { background: var(--gold-bg); }
+.tally-card.b { background: var(--green-bg); }
+.tally-card.c { background: var(--teal-bg); }
+.tally-card.d { background: var(--indigo-bg); }
+.tally-card.a .name { color: var(--gold); }
+.tally-card.b .name { color: var(--green); }
+.tally-card.c .name { color: var(--teal); }
+.tally-card.d .name { color: var(--indigo); }
+
+.result .qa-row { margin-top: 34px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.result .qa-box {
+  background: var(--paper);
+  border-radius: 22px;
+  border: 1.5px solid var(--line);
+  padding: 26px 30px;
+}
+.result .qa-box .q { font-size: 23px; font-weight: 700; color: var(--coral-dark); }
+.result .qa-box .a { margin-top: 10px; font-size: 20px; line-height: 1.75; color: var(--ink-soft); font-weight: 500; }
+
+.result .rule {
+  margin-top: 34px;
+  background: var(--coral-bg);
+  border-radius: 24px;
+  padding: 30px 36px;
+}
+.result .rule .not-eq { display: flex; gap: 40px; font-size: 24px; font-weight: 700; color: var(--ink-faint); }
+.result .rule .not-eq span.x { color: var(--coral); margin-left: 8px; }
+.result .rule p { font-size: 21px; line-height: 1.85; font-weight: 500; color: var(--ink); margin: 16px 0 0; }
+.result .rule p:first-of-type { margin-top: 18px; }
+
+/* ===================== PAGE 6｜4つのかけら ===================== */
+.types .content { padding: 50px 76px 96px; display: flex; flex-direction: column; height: 100%; }
+.types .type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 18px;
+  flex: 1;
+}
+.type-card {
+  border-radius: 22px;
+  padding: 22px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1.5px solid transparent;
+}
+.type-card .head { display: flex; align-items: center; gap: 14px; }
+.type-card .head .icon { font-size: 34px; }
+.type-card .head .name { font-size: 25px; font-weight: 700; }
+.type-card .power { margin-top: 6px; font-size: 18px; font-weight: 700; color: var(--ink-soft); }
+.type-card .examples { margin-top: 14px; font-size: 17px; line-height: 1.6; color: var(--ink-soft); font-weight: 500; }
+.type-card .body { margin-top: 10px; font-size: 17px; line-height: 1.6; color: var(--ink); font-weight: 500; }
+.type-card .punch { margin-top: 20px; padding-top: 14px; border-top: 1.5px dashed currentColor; opacity: 0.85; font-size: 19px; line-height: 1.5; font-weight: 700; }
+
+.type-card.a { background: var(--gold-bg); }
+.type-card.b { background: var(--green-bg); }
+.type-card.c { background: var(--teal-bg); }
+.type-card.d { background: var(--indigo-bg); }
+.type-card.a .name, .type-card.a .punch { color: var(--gold); }
+.type-card.b .name, .type-card.b .punch { color: var(--green); }
+.type-card.c .name, .type-card.c .punch { color: var(--teal); }
+.type-card.d .name, .type-card.d .punch { color: var(--indigo); }
+
+.types .next-box {
+  margin-top: 16px;
+  background: var(--paper);
+  border: 1.5px dashed var(--coral);
+  border-radius: 20px;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.types .next-box .label { font-size: 17px; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
+.types .next-box .blank { flex: 1; border-bottom: 2.5px solid var(--coral); height: 30px; }
+.types .next-box .suffix { font-size: 17px; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
+.types .reassure { margin-top: 12px; font-size: 15px; line-height: 1.6; color: var(--ink-soft); font-weight: 500; text-align: center; }
+
+/* ===================== PAGE 7｜今日のかけら ===================== */
+.workbook .content { padding: 84px 92px; }
+.workbook .prompts { margin-top: 30px; display: flex; flex-direction: column; gap: 22px; }
+.workbook .prompt {
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 24px;
+  padding: 26px 32px;
+}
+.workbook .prompt .ptitle { display: flex; align-items: center; gap: 14px; }
+.workbook .prompt .pnum {
+  flex: none; width: 44px; height: 44px; border-radius: 50%;
+  background: var(--coral); color: #fff; font-weight: 700; font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+}
+.workbook .prompt .ptxt { font-size: 22px; font-weight: 700; color: var(--ink); line-height: 1.5; }
+.workbook .prompt .pline { margin-top: 16px; border-bottom: 2px solid var(--line); height: 40px; }
+.workbook .hint-title { margin-top: 30px; font-size: 20px; font-weight: 700; color: var(--ink-faint); }
+.workbook .hint-chips { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 12px; }
+.workbook .chip {
+  background: var(--coral-bg); color: var(--coral-dark);
+  font-size: 18px; font-weight: 700;
+  padding: 10px 20px; border-radius: 999px;
+}
+
+/* ===================== PAGE 8｜結び ===================== */
+.closing .content { padding: 76px 96px; display: flex; flex-direction: column; height: 100%; }
+.closing .msg { font-size: 22px; line-height: 1.85; font-weight: 500; color: var(--ink); }
+.closing .msg p { margin: 0 0 6px; }
+.closing .msg .soft { color: var(--ink-soft); }
+.closing .final {
+  margin-top: 48px;
+  background: var(--coral-bg);
+  border-radius: 26px;
+  padding: 34px 40px;
+  text-align: center;
+}
+.closing .final p { margin: 0 0 10px; font-size: 23px; line-height: 1.6; font-weight: 700; color: var(--coral-dark); }
+.closing .final p:last-child { margin-bottom: 0; }

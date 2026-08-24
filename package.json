@@ -1,0 +1,13 @@
+{
+  "name": "dekitanokakera-lm",
+  "version": "1.0.0",
+  "private": true,
+  "description": "できたのかけら診断 — LINEプレゼント用リードマグネットPDF生成",
+  "scripts": {
+    "build": "node scripts/render.js"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "playwright-core": "^1.62.1"
+  }
+}
