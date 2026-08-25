@@ -174,16 +174,16 @@ function P() { return PAGE++; }
 // 1. COVER
 // ---------------------------------------------------------------
 {
-  const s = newSlide(pres, C.bgDark);
+  const s = newSlide(pres);
   shardsCover(s);
-  iconCircle(s, "🌱", 5.92, 0.62, 0.85, "3A2E26", 34);
+  iconCircle(s, "🌱", 5.92, 0.62, 0.85, C.coralBg, 34);
   s.addText("9月9日（水）10:00〜11:30　｜　オンライン（Zoom）　｜　参加費：無料", {
     x: 0.8, y: 1.68, w: 11.73, h: 0.4, align: "center",
-    fontFace: FONT, fontSize: 16, bold: true, color: C.gold, charSpacing: 1, margin: 0,
+    fontFace: FONT, fontSize: 16, bold: true, color: C.coralDark, charSpacing: 1, margin: 0,
   });
   s.addText("「私、ちゃんと進んでた」に気づく90分", {
     x: 0.8, y: 2.5, w: 11.73, h: 0.85, align: "center",
-    fontFace: FONT_TITLE, fontSize: 37, bold: true, color: C.white, margin: 0,
+    fontFace: FONT_TITLE, fontSize: 37, bold: true, color: C.ink, margin: 0,
   });
   s.addText("できたのかけらワークショップ", {
     x: 0.8, y: 3.42, w: 11.73, h: 0.95, align: "center",
@@ -193,12 +193,12 @@ function P() { return PAGE++; }
     "「頑張ってるはずなのに、なんだか進んでない気がする…」\nそんな方と一緒に、自分の中にもうある小さな「できた」を見つけて、\n「あれ？私、ちゃんと進んでた！」に気づく90分にしたいと思っています",
     {
       x: 1.4, y: 4.78, w: 10.53, h: 1.4, align: "center",
-      fontFace: FONT, fontSize: 17, color: C.creamText, lineSpacing: 25, margin: 0,
+      fontFace: FONT, fontSize: 17, color: C.inkSoft, lineSpacing: 25, margin: 0,
     }
   );
   s.addText("できたのかけら診断 ── ワークショップ編", {
     x: 0.8, y: H - 0.62, w: 11.73, h: 0.35, align: "center",
-    fontFace: FONT, fontSize: 12.5, color: C.creamSoft, charSpacing: 2, margin: 0,
+    fontFace: FONT, fontSize: 12.5, color: C.inkFaint, charSpacing: 2, margin: 0,
   });
 }
 
@@ -1106,35 +1106,35 @@ monthSlide(3, C.teal, C.tealBg, "習慣", "戻る仕組みをつくる", (s, tag
 // 28. S10b｜最後に
 // ---------------------------------------------------------------
 {
-  const s = newSlide(pres, C.bgDark);
+  const s = newSlide(pres);
   shardCorner(s, "tr", C.coral);
   shardCorner(s, "bl", C.teal);
-  eyebrow(s, "最後に", { color: C.gold });
+  eyebrow(s, "最後に");
   s.addText([
-    { text: "この90日間、一度も止まらなくていい。完璧じゃなくていい。\nできない日があっていい。迷っていい。誰かに頼っていい。", options: { fontSize: 20.5, color: C.creamText, breakLine: true } },
-    { text: "ただ、一つだけ。", options: { fontSize: 18.5, color: C.creamSoft, breakLine: true } },
-    { text: "止まっても、また戻ってくる。", options: { fontSize: 25.5, bold: true, color: C.coral, breakLine: true } },
-    { text: "そして戻ってきたとき、一緒に言いましょう。", options: { fontSize: 18.5, color: C.creamSoft, breakLine: true } },
-    { text: "「戻ってこられた。今日も一つ、できた。」", options: { fontSize: 30, bold: true, color: C.white } },
+    { text: "この90日間、一度も止まらなくていい。完璧じゃなくていい。\nできない日があっていい。迷っていい。誰かに頼っていい。", options: { fontSize: 20.5, color: C.ink, breakLine: true } },
+    { text: "ただ、一つだけ。", options: { fontSize: 18.5, color: C.inkSoft, breakLine: true } },
+    { text: "止まっても、また戻ってくる。", options: { fontSize: 25.5, bold: true, color: C.coralDark, breakLine: true } },
+    { text: "そして戻ってきたとき、一緒に言いましょう。", options: { fontSize: 18.5, color: C.inkSoft, breakLine: true } },
+    { text: "「戻ってこられた。今日も一つ、できた。」", options: { fontSize: 30, bold: true, color: C.ink } },
   ], { x: 1.2, y: 1.6, w: W - 2.4, h: 5.2, align: "center", valign: "middle", margin: 0, lineSpacing: 30, paraSpaceAfter: 16 });
 
-  folio(s, P(), true);
+  folio(s, P());
 }
 
 // ---------------------------------------------------------------
 // 29. LAST｜あなたの未来へ
 // ---------------------------------------------------------------
 {
-  const s = newSlide(pres, C.bgDark);
+  const s = newSlide(pres);
   shardsLast(s);
-  eyebrow(s, "できたのかけらワークショップ", { x: MX, y: 0.7, color: C.gold, align: "center", w: W - 1.4 });
+  eyebrow(s, "できたのかけらワークショップ", { x: MX, y: 0.7, color: C.coralDark, align: "center", w: W - 1.4 });
   s.addText("できたのかけらメソッド", {
     x: 0.8, y: 1.35, w: 11.73, h: 0.75, align: "center",
-    fontFace: FONT_TITLE, fontSize: 37, bold: true, color: C.white, margin: 0,
+    fontFace: FONT_TITLE, fontSize: 37, bold: true, color: C.ink, margin: 0,
   });
   s.addText("― 小さな「できた」から、自分を信じて目標を叶える90日間 ―", {
     x: 0.8, y: 2.1, w: 11.73, h: 0.5, align: "center",
-    fontFace: FONT, fontSize: 16, color: C.creamSoft, margin: 0,
+    fontFace: FONT, fontSize: 16, color: C.inkSoft, margin: 0,
   });
 
   s.addText("第1期｜限定5名　90日間　298,000円", {
@@ -1144,7 +1144,7 @@ monthSlide(3, C.teal, C.tealBg, "習慣", "戻る仕組みをつくる", (s, tag
 
   s.addText("そして最後は、この言葉で。", {
     x: 0.8, y: 3.6, w: 11.73, h: 0.4, align: "center",
-    fontFace: FONT, fontSize: 16, color: C.creamSoft, margin: 0,
+    fontFace: FONT, fontSize: 16, color: C.inkSoft, margin: 0,
   });
   s.addText("「私なら、またできる。」", {
     x: 0.8, y: 4.05, w: 11.73, h: 1.0, align: "center",
@@ -1152,10 +1152,10 @@ monthSlide(3, C.teal, C.tealBg, "習慣", "戻る仕組みをつくる", (s, tag
   });
   s.addText("小さな「できた」が、あなたの未来への道しるべになる。", {
     x: 0.8, y: 5.15, w: 11.73, h: 0.5, align: "center",
-    fontFace: FONT, fontSize: 17, color: C.creamText, margin: 0,
+    fontFace: FONT, fontSize: 17, color: C.ink, margin: 0,
   });
 
-  folio(s, P(), true);
+  folio(s, P());
 }
 
 console.log(`build complete: ${PAGE - 1} content slides + cover = ${PAGE} total`);
