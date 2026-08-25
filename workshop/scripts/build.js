@@ -166,7 +166,7 @@ const pres = new pptxgen();
 pres.defineLayout({ name: "WIDE", width: W, height: H });
 pres.layout = "WIDE";
 
-const TOTAL_SLIDES = 40;
+const TOTAL_SLIDES = 42;
 let PAGE = 2; // slide 1 is the cover (no folio shown there)
 function P() { return PAGE++; }
 
@@ -1052,6 +1052,30 @@ monthSlide(3, C.teal, C.tealBg, "習慣", "戻る仕組みをつくる", (s, tag
 }
 
 // ---------------------------------------------------------------
+// 25b. 参加費の前に｜相場感
+// ---------------------------------------------------------------
+{
+  const s = newSlide(pres);
+  shardCorner(s, "tr", C.gold);
+  title(s, "参加費の前に、知っておいてほしいこと", { fontSize: 27 });
+  bodyText(s, "身体・思考・習慣を一緒に整える、伴走型のプログラム。", MX, 1.85, CW, 0.4, { fontSize: 16, color: C.inkSoft, bold: true });
+
+  card(s, MX, 2.5, CW, 2.2, { fill: { color: C.muteBg }, line: { type: "none" } });
+  s.addText([
+    { text: "一般的には、", options: { fontSize: 16, color: C.inkSoft, breakLine: true } },
+    { text: "40万円 〜 60万円", options: { fontSize: 52, bold: true, color: C.inkFaint, breakLine: true } },
+    { text: "ほどかかることが多い金額です。", options: { fontSize: 16, color: C.inkSoft } },
+  ], { x: MX, y: 2.5, w: CW, h: 2.2, align: "center", valign: "middle", margin: 0, paraSpaceAfter: 6 });
+
+  s.addText("けれど、今回は――", {
+    x: MX, y: 5.1, w: CW, h: 0.6, align: "center",
+    fontFace: FONT, fontSize: 20, bold: true, color: C.coralDark, margin: 0,
+  });
+
+  folio(s, P());
+}
+
+// ---------------------------------------------------------------
 // 26. S09b｜参加費
 // ---------------------------------------------------------------
 {
@@ -1070,6 +1094,27 @@ monthSlide(3, C.teal, C.tealBg, "習慣", "戻る仕組みをつくる", (s, tag
     { text: "できる。止まる。相談する。変える。戻る。", options: { fontSize: 23, bold: true, color: C.coralDark, breakLine: true } },
     { text: "その経験を積み重ね、「私は私を信用していい」を育てる90日間です。", options: { fontSize: 18.5, bold: true, color: C.ink } },
   ], { x: 1.3, y: 4.05, w: W - 2.6, h: 2.3, align: "center", margin: 0, paraSpaceAfter: 14, lineSpacing: 24 });
+
+  folio(s, P());
+}
+
+// ---------------------------------------------------------------
+// 26b. 今日中のお申し込みでさらに｜早割価格
+// ---------------------------------------------------------------
+{
+  const s = newSlide(pres);
+  shardCorner(s, "tr", C.coral);
+  title(s, "今日中のお申し込み・ご入金で、さらに", { fontSize: 26 });
+
+  card(s, MX, 1.85, CW, 3.15, { fill: { color: C.coralBg }, line: { type: "none" } });
+  s.addText([
+    { text: "298,000円", options: { fontSize: 24, strike: true, color: C.inkFaint, breakLine: true } },
+    { text: "↓", options: { fontSize: 22, color: C.coral, breakLine: true } },
+    { text: "248,000", options: { fontSize: 68, bold: true, color: C.coralDark, breakLine: false } },
+    { text: "円", options: { fontSize: 32, bold: true, color: C.coralDark } },
+  ], { x: MX, y: 1.85, w: CW, h: 3.15, align: "center", valign: "middle", margin: 0, paraSpaceAfter: 6 });
+
+  pill(s, "本日中のお申し込み・ご入金限定", W / 2 - 2.4, 5.25, 4.8, 0.55, "FFFFFF", C.coralDark, 16);
 
   folio(s, P());
 }
