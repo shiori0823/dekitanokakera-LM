@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>できたのかけらワークショップ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* ===================== design tokens ===================== */
+  :root {
+    --bg: #FFF9F2;
+    --surface: #FFFFFF;
+    --surface-coral: #FDEEE7;
+    --surface-teal: #E5F3F1;
+    --surface-gold: #FFF4DE;
+    --surface-green: #EAF5E8;
+    --ink: #4A3B30;
+    --ink-soft: #8A7A6C;
+    --ink-faint: #B7A99A;
+    --line: #EFE2D3;
+    --coral: #F0876A;
+    --coral-deep: #D9694A;
+    --gold: #C99A34;
+    --teal: #2F9188;
+    --indigo: #6B74C4;
+    --green: #5E9E5B;
+    --shadow: 26 20 12;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #241C16;
+      --surface: #2E241C;
+      --surface-coral: #3B2A22;
+      --surface-teal: #1F332F;
+      --surface-gold: #332918;
+      --surface-green: #263323;
+      --ink: #F5EBE0;
+      --ink-soft: #C9B9A9;
+      --ink-faint: #8F7C6C;
+      --line: #44372C;
+      --coral: #F49A80;
+      --coral-deep: #FFB199;
+      --gold: #E3B455;
+      --teal: #5AC0B4;
+      --indigo: #A5AEEF;
+      --green: #93CC8F;
+      --shadow: 0 0 0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #241C16;
+    --surface: #2E241C;
+    --surface-coral: #3B2A22;
+    --surface-teal: #1F332F;
+    --surface-gold: #332918;
+    --surface-green: #263323;
+    --ink: #F5EBE0;
+    --ink-soft: #C9B9A9;
+    --ink-faint: #8F7C6C;
+    --line: #44372C;
+    --coral: #F49A80;
+    --coral-deep: #FFB199;
+    --gold: #E3B455;
+    --teal: #5AC0B4;
+    --indigo: #A5AEEF;
+    --green: #93CC8F;
+    --shadow: 0 0 0;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    font-size: 16px;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+    font-weight: 900;
+    line-height: 1.5;
+    margin: 0;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+
+  p { margin: 0; }
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  section { position: relative; }
+
+  /* ===================== reusable bits ===================== */
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: var(--coral-deep);
+  }
+
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px 44px;
+    background: var(--coral);
+    color: #fff9f2;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 999px;
+    box-shadow: 0 14px 30px -12px rgba(var(--shadow) / 0.45);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    white-space: nowrap;
+  }
+  .btn-cta:hover { transform: translateY(-2px); background: var(--coral-deep); }
+  .btn-cta:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .btn-cta .arrow { font-size: 15px; transform: translateX(0); transition: transform 0.18s ease; }
+  .btn-cta:hover .arrow { transform: translateX(4px); }
+
+  .btn-row { display: flex; justify-content: center; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+  }
+
+  /* ===================== decorative shards ===================== */
+  .shard-field {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .shard-field svg { position: absolute; }
+
+  /* ===================== hero ===================== */
+  .hero {
+    padding: 96px 0 84px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero .inner { position: relative; z-index: 1; }
+  .hero .kicker {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    margin-bottom: 14px;
+  }
+  .hero .title-main {
+    display: block;
+    font-size: clamp(40px, 7vw, 62px);
+    color: var(--coral);
+    margin-top: 10px;
+  }
+  .hero .lede {
+    max-width: 560px;
+    margin: 32px auto 0;
+    font-size: 18px;
+    line-height: 2;
+    color: var(--ink-soft);
+  }
+  .hero .lede strong { color: var(--ink); font-weight: 700; }
+
+  .info-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 0;
+    margin: 40px 0 40px;
+    font-size: 15px;
+  }
+  .info-row .item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 0 20px;
+    border-right: 1px solid var(--line);
+  }
+  .info-row .item:last-child { border-right: none; }
+  .info-row .label {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--coral-deep);
+    letter-spacing: 0.04em;
+  }
+  .info-row .value { font-weight: 500; color: var(--ink); }
+
+  /* ===================== pain points ===================== */
+  .pain {
+    padding: 88px 0;
+  }
+  .pain h2 { font-size: clamp(24px, 4vw, 32px); text-align: center; margin-bottom: 44px; }
+
+  .pain-list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .pain-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 8px;
+    font-size: 17px;
+    border-bottom: 1px solid var(--line);
+  }
+  .pain-list li:first-child { border-top: 1px solid var(--line); }
+  .pain-list .dot {
+    flex: none;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--ink-faint);
+    margin-top: 12px;
+  }
+
+  .reframe {
+    max-width: 620px;
+    margin: 40px auto 0;
+    background: var(--surface-coral);
+    border-radius: 22px;
+    padding: 32px 36px;
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.95;
+  }
+  .reframe strong {
+    display: block;
+    margin-top: 6px;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--coral-deep);
+  }
+
+  /* ===================== 3 insights ===================== */
+  .insights { padding: 88px 0; background: var(--surface-teal); }
+  .insights h2 { font-size: clamp(24px, 4vw, 32px); text-align: center; }
+  .insights .sub { text-align: center; color: var(--ink-soft); margin-top: 10px; font-size: 15px; }
+
+  .insight-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .insight-card {
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 36px 28px;
+    text-align: center;
+  }
+  .insight-card .icon {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 20px;
+  }
+  .insight-card:nth-child(1) .icon { background: var(--surface-green); }
+  .insight-card:nth-child(2) .icon { background: var(--surface-teal); }
+  .insight-card:nth-child(3) .icon { background: var(--surface-gold); }
+  .insight-card h3 { font-size: 18px; margin-bottom: 12px; }
+  .insight-card p { color: var(--ink-soft); font-size: 15px; line-height: 1.85; }
+
+  /* ===================== overview table ===================== */
+  .overview { padding: 88px 0; }
+  .overview h2 { font-size: clamp(24px, 4vw, 32px); text-align: center; margin-bottom: 40px; }
+
+  .overview-table {
+    max-width: 560px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+  }
+  .overview-table tbody { display: table; width: 100%; }
+  .overview-table tr { border-bottom: 1px solid var(--line); }
+  .overview-table tr:first-child { border-top: 1px solid var(--line); }
+  .overview-table th, .overview-table td {
+    text-align: left;
+    padding: 20px 12px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .overview-table th {
+    width: 110px;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--coral-deep);
+    letter-spacing: 0.04em;
+    vertical-align: top;
+    padding-top: 22px;
+  }
+  .overview-table td { color: var(--ink); font-weight: 500; }
+
+  .overview .btn-row { margin-top: 48px; }
+
+  /* ===================== bonus ===================== */
+  .bonus { padding: 88px 0; background: var(--surface-gold); }
+  .bonus .grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px;
+    align-items: start;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .bonus .badge {
+    width: 84px; height: 84px;
+    border-radius: 24px;
+    background: var(--surface);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 34px;
+    flex: none;
+  }
+  .bonus .eyebrow { margin-bottom: 10px; }
+  .bonus h2 { font-size: clamp(22px, 3.6vw, 28px); margin-bottom: 4px; }
+  .bonus .product-name { color: var(--gold); }
+  .bonus p.desc { margin-top: 16px; font-size: 16px; color: var(--ink); }
+  .bonus p.desc2 { margin-top: 10px; font-size: 15px; color: var(--ink-soft); }
+
+  .bonus blockquote {
+    margin: 28px 0 0;
+    padding: 22px 26px;
+    background: var(--surface);
+    border-radius: 18px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.9;
+  }
+  .bonus blockquote p::before { content: "“"; }
+  .bonus blockquote p::after { content: "”"; }
+
+  .bonus .btn-row { margin-top: 32px; justify-content: flex-start; }
+
+  @media (max-width: 620px) {
+    .bonus .grid { grid-template-columns: 1fr; text-align: center; }
+    .bonus .badge { margin: 0 auto; }
+    .bonus .btn-row { justify-content: center; }
+  }
+
+  /* ===================== testimonial ===================== */
+  .testimonial { padding: 88px 0; }
+  .testimonial figure {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .testimonial .mark {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-size: 64px;
+    color: var(--teal);
+    opacity: 0.35;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .testimonial blockquote {
+    margin: 0;
+    font-size: 17px;
+    line-height: 2.05;
+    color: var(--ink);
+  }
+  .testimonial figcaption {
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+
+  /* ===================== instructor ===================== */
+  .instructor { padding: 88px 0; background: var(--surface-teal); }
+  .instructor .card {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: none;
+    border-radius: 28px;
+    padding: 48px 44px;
+  }
+  .instructor .top { display: flex; align-items: center; gap: 22px; }
+  .instructor .avatar {
+    flex: none;
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, var(--coral), var(--gold));
+    color: #fff9f2;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .instructor .name { font-size: 21px; }
+  .instructor .role { margin-top: 4px; font-size: 14px; color: var(--ink-soft); }
+
+  .stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 24px 0;
+  }
+  .stat-chip {
+    background: var(--surface-teal);
+    color: var(--teal);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .instructor p.bio { font-size: 15.5px; color: var(--ink); }
+  .instructor p.bio + p.bio { margin-top: 16px; }
+  .instructor .signoff {
+    margin-top: 20px;
+    font-weight: 700;
+    color: var(--coral-deep);
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-size: 15.5px;
+  }
+
+  /* ===================== final CTA banner ===================== */
+  .final-cta {
+    padding: 100px 0;
+    text-align: center;
+    background: var(--ink);
+    color: #FBF3EA;
+    overflow: hidden;
+    position: relative;
+  }
+  .final-cta .inner { position: relative; z-index: 1; }
+  .final-cta h2 {
+    color: #FBF3EA;
+    font-size: clamp(26px, 4.4vw, 38px);
+  }
+  .final-cta h2 .accent { color: var(--coral); }
+  .final-cta .btn-row { margin-top: 40px; }
+
+  /* ===================== FAQ ===================== */
+  .faq { padding: 88px 0; }
+  .faq h2 { font-size: clamp(24px, 4vw, 32px); text-align: center; margin-bottom: 44px; }
+  .faq-list {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .faq-item {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 4px 26px;
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 20px 40px 20px 0;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    position: relative;
+    display: flex;
+    gap: 12px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary .q-mark {
+    flex: none;
+    color: var(--coral-deep);
+    font-family: "Zen Maru Gothic", sans-serif;
+  }
+  .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 4px;
+    top: 18px;
+    font-size: 22px;
+    color: var(--ink-faint);
+    font-weight: 400;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::after { content: "−"; }
+  .faq-item .a {
+    display: flex;
+    gap: 12px;
+    padding: 0 0 22px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.9;
+  }
+  .faq-item .a .a-mark { flex: none; color: var(--ink-faint); font-family: "Zen Maru Gothic", sans-serif; font-weight: 700; }
+
+  /* ===================== footer ===================== */
+  footer {
+    padding: 48px 0 60px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+  }
+
+  @media (max-width: 720px) {
+    .insight-grid { grid-template-columns: 1fr; }
+    .info-row .item { border-right: none; padding: 4px 14px; }
+    .instructor .top { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="shard" viewBox="0 0 100 100">
+      <path d="M52 3 L94 28 L88 76 L46 97 L8 70 L4 24 Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="shard-field">
+    <svg viewBox="0 0 100 100" width="220" height="220" style="top:-60px; left:-70px; transform:rotate(-12deg);" fill="var(--coral)" opacity="0.14"><use href="#shard"/></svg>
+    <svg viewBox="0 0 100 100" width="160" height="160" style="top:20px; right:-50px; transform:rotate(18deg);" fill="var(--gold)" opacity="0.16"><use href="#shard"/></svg>
+    <svg viewBox="0 0 100 100" width="130" height="130" style="bottom:-40px; left:8%; transform:rotate(24deg);" fill="var(--teal)" opacity="0.14"><use href="#shard"/></svg>
+  </div>
+  <div class="wrap inner">
+    <div class="kicker">できたのかけら診断 ── ワークショップ編</div>
+    <h1>
+      「私、ちゃんと進んでた」に気づく90分
+      <span class="title-main">できたのかけらワークショップ</span>
+    </h1>
+    <p class="lede">
+      できないんじゃない。まだ、気づいていないだけ。<br>
+      今日という一日にも、<strong>あなたの「できた」はきっとある。</strong>
+    </p>
+
+    <div class="info-row">
+      <div class="item"><span class="label">日時</span><span class="value">2026年9月9日（水）10:00〜11:30</span></div>
+      <div class="item"><span class="label">形式</span><span class="value">オンライン（Zoom）</span></div>
+      <div class="item"><span class="label">参加費</span><span class="value">無料（事後アンケートにご協力いただける方限定）</span></div>
+    </div>
+
+    <div class="btn-row">
+      <a class="btn-cta" href="#">無料で説明会に申し込む <span class="arrow">▶</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAIN POINTS ================= -->
+<section class="pain">
+  <div class="wrap">
+    <h2>こんなふうに感じていませんか？</h2>
+    <ul class="pain-list">
+      <li><span class="dot"></span><span>目標を立てても、途中で止まってしまう</span></li>
+      <li><span class="dot"></span><span>「今日も何もできなかった」と一日の終わりに感じる</span></li>
+      <li><span class="dot"></span><span>頑張っているのに、前に進んでいる実感がない</span></li>
+      <li><span class="dot"></span><span>他人の成果と比べて、自分に自信が持てない</span></li>
+      <li><span class="dot"></span><span>「また失敗するかも」が、新しい挑戦へのブレーキになっている</span></li>
+    </ul>
+    <div class="reframe">
+      もしどれかに当てはまるなら、それはあなたの努力が足りないからではありません。
+      <strong>すでにある「できた」に、まだ気づけていないだけかもしれません。</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3 INSIGHTS ================= -->
+<section class="insights">
+  <div class="wrap">
+    <h2>この90分で得られる3つの気づき</h2>
+    <p class="sub">WHAT YOU'LL TAKE HOME</p>
+    <div class="insight-grid">
+      <div class="insight-card">
+        <div class="icon">🌱</div>
+        <h3>気づく力</h3>
+        <p>毎日の中に隠れている、小さな「できた」を見つける視点が手に入ります。</p>
+      </div>
+      <div class="insight-card">
+        <div class="icon">🤝</div>
+        <h3>仲間の力</h3>
+        <p>自分では見えない「できた」も、誰かの言葉から見えてくることがあります。</p>
+      </div>
+      <div class="insight-card">
+        <div class="icon">🧭</div>
+        <h3>進む力</h3>
+        <p>「私にもできてた」の積み重ねが、次の一歩を踏み出す自信になります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OVERVIEW ================= -->
+<section class="overview">
+  <div class="wrap">
+    <h2>ワークショップ概要</h2>
+    <table class="overview-table">
+      <tbody>
+        <tr><th>日時</th><td>2026年9月9日（水）10:00〜11:30</td></tr>
+        <tr><th>形式</th><td>オンライン（Zoom）</td></tr>
+        <tr><th>参加費</th><td>無料（事後アンケートにご協力いただける方限定）</td></tr>
+        <tr><th>定員</th><td>5名</td></tr>
+      </tbody>
+    </table>
+    <div class="btn-row">
+      <a class="btn-cta" href="#">無料で説明会に申し込む <span class="arrow">▶</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BONUS ================= -->
+<section class="bonus">
+  <div class="wrap">
+    <div class="grid">
+      <div class="badge">🔍</div>
+      <div>
+        <div class="eyebrow">ご参加特典</div>
+        <h2>『<span class="product-name">できたのかけら診断</span>』</h2>
+        <p class="desc">ご参加いただいた方には、8つの質問から自分の「できたのかけら」タイプがわかる自己診断コンテンツ『できたのかけら診断』をプレゼントします。</p>
+        <p class="desc2">成果・挑戦・選択・継続——あなたが今、見つけるのが得意な「できた」と、次に見つけてほしい「できた」がわかります。</p>
+        <blockquote><p>できたが、新しく増えたわけではありません。今まで見えていなかった「できた」が、見えるようになるだけ。</p></blockquote>
+        <div class="btn-row">
+          <a class="btn-cta" href="#">特典を受け取って無料説明会に申し込む <span class="arrow">▶</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIAL ================= -->
+<section class="testimonial">
+  <div class="wrap">
+    <figure>
+      <div class="mark">”</div>
+      <blockquote>
+        正しい立ち方がとても良く、職場でも実践してみました😊<br>
+        動けないから小さな出来る事をやっていき、目標設定まで細かく導いていただくことで、漠然とした動けないから習慣を見直す事でたくさんの気付きがありました✨<br>
+        とても優しくて安心してお話し出来ました。<br>
+        ありがとうございました😊
+      </blockquote>
+      <figcaption>参加者の声</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= INSTRUCTOR ================= -->
+<section class="instructor">
+  <div class="wrap">
+    <div class="card">
+      <div class="top">
+        <div class="avatar">栞</div>
+        <div>
+          <div class="name">佐藤栞（しおりん）</div>
+          <div class="role">目標達成プロデューサー／ノーリミッツ岡山共同代表・元教員／支援員</div>
+        </div>
+      </div>
+      <div class="stat-row">
+        <span class="stat-chip">競技歴11年以上</span>
+        <span class="stat-chip">全日本57kg級・52kg級 日本一</span>
+        <span class="stat-chip">スクワット日本記録</span>
+      </div>
+      <p class="bio">出産・育児・ジム経営・競技を両立する中で、「今日も何もできなかった」と感じた経験から、小さな「できた」＝「できたのかけら」に気づく大切さにたどり着きました。</p>
+      <p class="bio signoff">止まっても、また戻ればいい。「私なら、またできる」と信じて進める人を増やすことが、私の仕事です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final-cta">
+  <div class="shard-field">
+    <svg viewBox="0 0 100 100" width="200" height="200" style="top:-50px; right:6%; transform:rotate(15deg);" fill="var(--coral)" opacity="0.2"><use href="#shard"/></svg>
+    <svg viewBox="0 0 100 100" width="140" height="140" style="bottom:-40px; left:6%; transform:rotate(-10deg);" fill="var(--gold)" opacity="0.16"><use href="#shard"/></svg>
+  </div>
+  <div class="wrap inner">
+    <h2>今日の90分が、<span class="accent">次の一歩</span>になる</h2>
+    <div class="btn-row">
+      <a class="btn-cta" href="#">無料で説明会に申し込む <span class="arrow">▶</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq">
+  <div class="wrap">
+    <h2>よくある質問</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary><span class="q-mark">Q.</span><span>これまで習慣化や目標達成の方法をいろいろ試しても続きませんでした。私でも意味がありますか？</span></summary>
+        <div class="a"><span class="a-mark">A.</span><span>はい。このワークショップは「新しい方法」を追加するものではなく、すでにあなたの中にある「できた」に気づく視点を持ち帰っていただくものです。方法論より先に、まずは気づき方から始めます。</span></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="q-mark">Q.</span><span>特に大きな目標がまだ決まっていないのですが、参加する意味はありますか？</span></summary>
+        <div class="a"><span class="a-mark">A.</span><span>問題ありません。目標が決まっている・いないに関わらず、まずは今日の自分の「できた」を見つけることがスタートになります。目標は、その先にあるものです。</span></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="q-mark">Q.</span><span>パワーリフティングや筋トレの経験がなくても参加できますか？</span></summary>
+        <div class="a"><span class="a-mark">A.</span><span>はい、運動経験がなくても大丈夫です。</span></div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="q-mark">Q.</span><span>忙しくて自分の時間がほとんど取れません。それでも意味がありますか？</span></summary>
+        <div class="a"><span class="a-mark">A.</span><span>むしろ、忙しい毎日の中にこそ見落とされがちな「できた」がたくさんあります。90分の中で、その見つけ方だけを持ち帰っていただけます。</span></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  できたのかけらワークショップ
+</footer>
+
+</body>
+</html>
