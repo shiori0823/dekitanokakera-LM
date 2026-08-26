@@ -167,8 +167,12 @@
   }
   .hero .inner { position: relative; z-index: 1; }
   .hero h1 {
-    font-size: clamp(28px, 5vw, 40px);
     margin-bottom: 14px;
+  }
+  .hero .title-lede {
+    display: block;
+    font-size: clamp(14px, 4.6vw, 40px);
+    white-space: nowrap;
   }
   .hero .title-main {
     display: block;
@@ -530,8 +534,19 @@
 
   @media (max-width: 720px) {
     .insight-grid { grid-template-columns: 1fr; }
-    .info-row .item { border-right: none; padding: 4px 14px; }
     .instructor .top { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 600px) {
+    .info-row { flex-direction: column; gap: 14px; margin: 36px 0; }
+    .info-row .item {
+      border-right: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 0;
+      text-align: center;
+    }
   }
 </style>
 </head>
@@ -554,12 +569,13 @@
   </div>
   <div class="wrap inner">
     <h1>
-      「私、ちゃんと進んでた」に気づく90分
+      <span class="title-lede">「私、ちゃんと進んでた」に気づく90分</span>
       <span class="title-main">できたのかけらワークショップ</span>
     </h1>
     <p class="lede">
       できないんじゃない。まだ、気づいていないだけ。
-      今日という一日にも、<strong>あなたの「できた」はきっとある。</strong>
+      今日という一日にも、<br>
+      <strong>あなたの「できた」はきっとある。</strong>
     </p>
 
     <div class="info-row">
@@ -577,7 +593,7 @@
 <!-- ================= PAIN POINTS ================= -->
 <section class="pain">
   <div class="wrap">
-    <h2>こんなふうに感じていませんか？</h2>
+    <h2>こんなふうに<br>感じていませんか？</h2>
     <ul class="pain-list">
       <li><span class="dot"></span><span>目標を立てても、途中で止まってしまう</span></li>
       <li><span class="dot"></span><span>「今日も何もできなかった」と一日の終わりに感じる</span></li>
