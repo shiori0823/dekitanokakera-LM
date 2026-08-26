@@ -341,46 +341,40 @@
 
   /* ===================== bonus ===================== */
   .bonus { padding: 88px 0; background: var(--surface-gold); }
-  .bonus .grid {
+  .bonus .head { text-align: center; max-width: 560px; margin: 0 auto; }
+  .bonus .eyebrow { justify-content: center; margin-bottom: 14px; }
+  .bonus h2 { font-size: clamp(24px, 4vw, 32px); }
+  .bonus .head p { margin-top: 14px; font-size: 15.5px; color: var(--ink-soft); }
+
+  .bonus-grid {
+    margin-top: 48px;
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 28px;
-    align-items: start;
-    max-width: 680px;
-    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
   }
-  .bonus .badge {
-    width: 84px; height: 84px;
+  .bonus-card {
+    background: var(--surface);
     border-radius: 24px;
-    background: var(--surface);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 34px;
-    flex: none;
+    padding: 32px 26px;
+    display: flex;
+    flex-direction: column;
   }
-  .bonus .eyebrow { margin-bottom: 10px; }
-  .bonus h2 { font-size: clamp(22px, 3.6vw, 28px); margin-bottom: 4px; }
-  .bonus .product-name { color: var(--gold); }
-  .bonus p.desc { margin-top: 16px; font-size: 16px; color: var(--ink); }
-  .bonus p.desc2 { margin-top: 10px; font-size: 15px; color: var(--ink-soft); }
-
-  .bonus blockquote {
-    margin: 28px 0 0;
-    padding: 22px 26px;
-    background: var(--surface);
-    border-radius: 18px;
-    font-size: 15px;
-    color: var(--ink-soft);
-    line-height: 1.9;
+  .bonus-card .num {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
   }
-  .bonus blockquote p::before { content: "“"; }
-  .bonus blockquote p::after { content: "”"; }
+  .bonus-card .icon { font-size: 30px; margin-top: 14px; }
+  .bonus-card h3 { font-size: 17px; margin-top: 14px; }
+  .bonus-card p { margin-top: 10px; font-size: 14.5px; line-height: 1.85; color: var(--ink-soft); }
 
-  .bonus .btn-row { margin-top: 32px; justify-content: flex-start; }
+  .bonus .btn-row { margin-top: 44px; }
 
-  @media (max-width: 620px) {
-    .bonus .grid { grid-template-columns: 1fr; text-align: center; }
-    .bonus .badge { margin: 0 auto; }
-    .bonus .btn-row { justify-content: center; }
+  @media (max-width: 720px) {
+    .bonus-grid { grid-template-columns: 1fr; }
   }
 
   /* ===================== testimonial ===================== */
@@ -653,18 +647,33 @@
 <!-- ================= BONUS ================= -->
 <section class="bonus">
   <div class="wrap">
-    <div class="grid">
-      <div class="badge">🔍</div>
-      <div>
-        <div class="eyebrow">ご参加特典</div>
-        <h2>『<span class="product-name">できたのかけら診断</span>』</h2>
-        <p class="desc">ご参加いただいた方には、8つの質問から自分の「できたのかけら」タイプがわかる自己診断コンテンツ『できたのかけら診断』をプレゼントします。</p>
-        <p class="desc2">成果・挑戦・選択・継続——あなたが今、見つけるのが得意な「できた」と、次に見つけてほしい「できた」がわかります。</p>
-        <blockquote><p>できたが、新しく増えたわけではありません。今まで見えていなかった「できた」が、見えるようになるだけ。</p></blockquote>
-        <div class="btn-row">
-          <a class="btn-cta" href="#">特典を受け取って説明会に申し込む <span class="arrow">▶</span></a>
-        </div>
+    <div class="head">
+      <div class="eyebrow">ご参加特典</div>
+      <h2>参加者限定の3つの特典</h2>
+      <p>ワークショップの学びを、その場だけで終わらせないための3つをご用意しました。</p>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="num">特典 01</div>
+        <div class="icon">📝</div>
+        <h3>できたのかけら 見つけるワークシート</h3>
+        <p>ワーク中に使う4つの問いを、日々書き込める1枚シートにしました。ワークショップの後も、繰り返し使えます。</p>
       </div>
+      <div class="bonus-card">
+        <div class="num">特典 02</div>
+        <div class="icon">✅</div>
+        <h3>7STEPチェックシート</h3>
+        <p>「できた」を結果につなげる7つのステップを、チェック欄付きの1枚にまとめました。</p>
+      </div>
+      <div class="bonus-card">
+        <div class="num">特典 03</div>
+        <div class="icon">💬</div>
+        <h3>15分の個別ミニ相談</h3>
+        <p>参加者限定で、講師と1対1で話せる15分間。あなたの「今」に合わせて、一緒に考えます。</p>
+      </div>
+    </div>
+    <div class="btn-row">
+      <a class="btn-cta" href="#">特典を受け取って説明会に申し込む <span class="arrow">▶</span></a>
     </div>
   </div>
 </section>
