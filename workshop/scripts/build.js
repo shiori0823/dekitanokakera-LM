@@ -177,9 +177,9 @@ function P() { return PAGE++; }
   const s = newSlide(pres);
   shardsCover(s);
   iconCircle(s, "🌱", 5.92, 0.62, 0.85, C.coralBg, 34);
-  s.addText("9月9日（水）10:00〜11:30　｜　オンライン（Zoom）　｜　参加費：無料", {
-    x: 0.8, y: 1.68, w: 11.73, h: 0.4, align: "center",
-    fontFace: FONT, fontSize: 16, bold: true, color: C.coralDark, charSpacing: 1, margin: 0,
+  s.addText("9月9日（水）10:00〜11:30　｜　オンライン（Zoom）\n参加費：3,300円（感想アンケート協力で無料）", {
+    x: 0.8, y: 1.6, w: 11.73, h: 0.65, align: "center",
+    fontFace: FONT, fontSize: 16, bold: true, color: C.coralDark, charSpacing: 1, margin: 0, lineSpacing: 26,
   });
   s.addText("「私、ちゃんと進んでた」に気づく90分", {
     x: 0.8, y: 2.5, w: 11.73, h: 0.85, align: "center",
