@@ -731,16 +731,27 @@ stepSlideSingle(7, "止まったら戻る",
   title(s, "CASE3｜2.5kgの積み重ねが、日本記録へ", { fontSize: 27.5 });
 
   const stats = [
-    ["全日本57kg級・52kg級", "日本一"],
-    ["スクワット142.5kg", "日本記録"],
+    ["全日本57kg級・52kg級", "日本一", "achievement-nantan-podium.jpg", 0.8],
+    ["スクワット142.5kg", "日本記録", "achievement-squat-record.jpg", 0.75],
   ];
   const sw = (CW - 0.4) / 2;
+  const cardY = 2.3, cardH = 3.75;
   stats.forEach((st, i) => {
     const x = MX + i * (sw + 0.4);
-    const y = 2.4;
-    card(s, x, y, sw, 1.9, { fill: { color: C.card } });
-    s.addText(st[0], { x: x + 0.4, y: y + 0.25, w: sw - 0.8, h: 0.6, valign: "middle", fontFace: FONT, fontSize: 19, color: C.inkSoft, margin: 0 });
-    s.addText(st[1], { x: x + 0.4, y: y + 0.9, w: sw - 0.8, h: 0.75, valign: "middle", fontFace: FONT, fontSize: 32, bold: true, color: C.gold, margin: 0 });
+    card(s, x, cardY, sw, cardH, { fill: { color: C.card } });
+
+    const photoH = cardH - 0.5;
+    const photoW = photoH * st[3];
+    const photoX = x + sw - photoW - 0.3;
+    const photoY = cardY + 0.25;
+    card(s, photoX - 0.05, photoY - 0.05, photoW + 0.1, photoH + 0.1, {
+      fill: { color: C.white }, line: { color: C.line, width: 1 }, rectRadius: 0.03,
+    });
+    s.addImage({ path: path.join(__dirname, "..", "images", st[2]), x: photoX, y: photoY, w: photoW, h: photoH });
+
+    const textW = photoX - 0.25 - (x + 0.4);
+    s.addText(st[0], { x: x + 0.4, y: cardY + 0.35, w: textW, h: 0.9, valign: "top", fontFace: FONT, fontSize: 17, color: C.inkSoft, margin: 0, lineSpacing: 21 });
+    s.addText(st[1], { x: x + 0.4, y: cardY + 1.35, w: textW, h: 0.9, valign: "top", fontFace: FONT, fontSize: 27, bold: true, color: C.gold, margin: 0 });
   });
 
   closingBanner(s, "大きな結果は、数えきれない「できた」の集合体。");
