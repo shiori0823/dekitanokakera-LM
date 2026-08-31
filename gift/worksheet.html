@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>できたのかけら 見つけるワークシート</title>
+<link rel="stylesheet" href="../src/style.css">
+<style>
+  .page.gift { display: flex; flex-direction: column; }
+  .gift .content { padding: 76px 92px 0; }
+
+  .gift .date-field {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-top: 26px;
+    padding: 10px 26px;
+    border: 1.5px dashed var(--ink-faint);
+    border-radius: 999px;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+  .gift .date-field .u {
+    display: inline-block;
+    min-width: 46px;
+    border-bottom: 1.5px solid var(--ink-faint);
+    height: 22px;
+  }
+
+  .gift-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+  }
+  .gift-card {
+    border-radius: 24px;
+    padding: 24px 28px;
+    border: 1.5px solid transparent;
+  }
+  .gift-card .head { display: flex; align-items: center; gap: 12px; }
+  .gift-card .head .icon { font-size: 30px; line-height: 1; }
+  .gift-card .head .name { font-size: 22px; font-weight: 700; }
+  .gift-card .q { margin-top: 10px; font-size: 18px; line-height: 1.5; font-weight: 700; color: var(--ink); }
+  .gift-card .lines { margin-top: 14px; }
+  .gift-card .lines .ln { border-bottom: 1.5px solid rgba(0,0,0,0.14); height: 30px; }
+  .gift-card .lines .ln + .ln { margin-top: 8px; }
+
+  .gift-card.a { background: var(--gold-bg); }
+  .gift-card.b { background: var(--green-bg); }
+  .gift-card.c { background: var(--teal-bg); }
+  .gift-card.d { background: var(--indigo-bg); }
+  .gift-card.a .name { color: var(--gold); }
+  .gift-card.b .name { color: var(--green); }
+  .gift-card.c .name { color: var(--teal); }
+  .gift-card.d .name { color: var(--indigo); }
+
+  .gift .footnote {
+    margin-top: 26px;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--coral-dark);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="kakera-shape" viewBox="0 0 100 100">
+      <path d="M52 3 L94 28 L88 76 L46 97 L8 70 L4 24 Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<section class="page gift">
+  <div class="shards">
+    <div class="shard" style="width:150px;top:-40px;right:-40px;transform:rotate(18deg);">
+      <svg viewBox="0 0 100 100" width="150" height="150" fill="#CE9A2E"><use href="#kakera-shape"/></svg>
+    </div>
+    <div class="shard" style="width:110px;bottom:20px;left:-30px;transform:rotate(-15deg);">
+      <svg viewBox="0 0 100 100" width="110" height="110" fill="#2F9188"><use href="#kakera-shape"/></svg>
+    </div>
+  </div>
+  <div class="content">
+    <div class="eyebrow">できたのかけら ワークシート</div>
+    <h2 class="section-title" style="margin-top:18px;">今日の「できたのかけら」を<br>見つけよう</h2>
+    <p class="lead" style="margin-top:10px;">4つの視点から、今日のあなたの「できた」を書き出してみましょう。<br>大きなことでなくて大丈夫です。</p>
+
+    <div class="date-field">
+      <span class="u"></span>月<span class="u"></span>日（<span class="u"></span>）
+    </div>
+
+    <div class="gift-grid">
+      <div class="gift-card a">
+        <div class="head"><span class="icon">🏆</span><span class="name">成果のかけら</span></div>
+        <div class="q">今日、少しでも前に進められたことは？</div>
+        <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+      </div>
+
+      <div class="gift-card b">
+        <div class="head"><span class="icon">🌱</span><span class="name">挑戦のかけら</span></div>
+        <div class="q">今日、初めてやってみた・勇気を出したことは？</div>
+        <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+      </div>
+
+      <div class="gift-card c">
+        <div class="head"><span class="icon">🌿</span><span class="name">選択のかけら</span></div>
+        <div class="q">今日、自分で選んだり決めたりできたことは？</div>
+        <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+      </div>
+
+      <div class="gift-card d">
+        <div class="head"><span class="icon">🔄</span><span class="name">継続のかけら</span></div>
+        <div class="q">今日、続けられたこと・止まっても戻れたことは？</div>
+        <div class="lines"><div class="ln"></div><div class="ln"></div></div>
+      </div>
+    </div>
+
+    <p class="footnote">それも全部、「できたのかけら」です。</p>
+  </div>
+  <div class="folio">できたのかけらワークショップ<span class="dot"></span>ワークシート</div>
+</section>
+
+</body>
+</html>

@@ -166,7 +166,7 @@ const pres = new pptxgen();
 pres.defineLayout({ name: "WIDE", width: W, height: H });
 pres.layout = "WIDE";
 
-const TOTAL_SLIDES = 42;
+const TOTAL_SLIDES = 43;
 let PAGE = 2; // slide 1 is the cover (no folio shown there)
 function P() { return PAGE++; }
 
@@ -1172,6 +1172,46 @@ monthSlide(3, C.teal, C.tealBg, "習慣", "戻る仕組みをつくる", (s, tag
     s.addText(qa[1], { x: MX + 4.75, y, w: CW - 5.05, h: rowH, valign: "middle", fontFace: FONT, fontSize: 15.5, color: C.inkSoft, margin: 0, lineSpacing: 16 });
   });
 
+  folio(s, P());
+}
+
+// ---------------------------------------------------------------
+// 27b. 参加者限定特典｜個別ミニ相談
+// ---------------------------------------------------------------
+{
+  const s = newSlide(pres);
+  shardCorner(s, "bl", C.coral);
+  eyebrow(s, "参加者限定特典");
+  title(s, "講師との15分間、個別ミニ相談");
+
+  card(s, MX, 2.05, CW, 1.55, { fill: { color: C.coralBg }, line: { type: "none" } });
+  iconCircle(s, "💬", MX + 0.45, 2.35, 0.95, C.white, 40);
+  s.addText(
+    "参加者限定で、講師と1対1で話せる15分間。\nあなたの「今」に合わせて、一緒に考えます。",
+    {
+      x: MX + 1.7, y: 2.05, w: CW - 2.1, h: 1.55, valign: "middle",
+      fontFace: FONT, fontSize: 19, bold: true, color: C.ink, margin: 0, lineSpacing: 27,
+    }
+  );
+
+  const topics = [
+    ["🎯", "自分に合った目標の\n立て方を相談したい"],
+    ["🧭", "今、何から始めれば\nいいか分からない"],
+    ["🔄", "続かなかった過去を\nどう活かせばいいか"],
+  ];
+  const tw = (CW - 0.5) / 3;
+  topics.forEach((t, i) => {
+    const x = MX + i * (tw + 0.25);
+    const y = 4.0;
+    card(s, x, y, tw, 1.55);
+    iconCircle(s, t[0], x + tw / 2 - 0.32, y + 0.22, 0.64, C.coralBg, 24);
+    s.addText(t[1], {
+      x: x + 0.15, y: y + 0.95, w: tw - 0.3, h: 0.5, align: "center",
+      fontFace: FONT, fontSize: 13.5, color: C.ink, margin: 0, lineSpacing: 16,
+    });
+  });
+
+  closingBanner(s, "予約方法は、ワークショップ当日にご案内します。", 5.85);
   folio(s, P());
 }
 
