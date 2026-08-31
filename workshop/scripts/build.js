@@ -166,7 +166,7 @@ const pres = new pptxgen();
 pres.defineLayout({ name: "WIDE", width: W, height: H });
 pres.layout = "WIDE";
 
-const TOTAL_SLIDES = 43;
+const TOTAL_SLIDES = 44;
 let PAGE = 2; // slide 1 is the cover (no folio shown there)
 function P() { return PAGE++; }
 
@@ -1172,6 +1172,37 @@ monthSlide(3, C.teal, C.tealBg, "習慣", "戻る仕組みをつくる", (s, tag
     s.addText(qa[1], { x: MX + 4.75, y, w: CW - 5.05, h: rowH, valign: "middle", fontFace: FONT, fontSize: 15.5, color: C.inkSoft, margin: 0, lineSpacing: 16 });
   });
 
+  folio(s, P());
+}
+
+// ---------------------------------------------------------------
+// 27a. 参加者限定特典｜プレゼントワークシート（QRコード）
+// ---------------------------------------------------------------
+{
+  const s = newSlide(pres);
+  shardCorner(s, "tr", C.coral);
+  eyebrow(s, "参加者限定特典");
+  title(s, "ワークシート＆7STEPチェックシートを\nプレゼント", { fontSize: 27, h: 1.3 });
+
+  const qrSize = 3.2;
+  const qrX = MX, qrY = 2.55;
+  card(s, qrX - 0.1, qrY - 0.1, qrSize + 0.2, qrSize + 0.2, {
+    fill: { color: C.white }, line: { color: C.line, width: 1 }, rectRadius: 0.06,
+  });
+  s.addImage({ path: path.join(__dirname, "..", "images", "gift-qr.png"), x: qrX, y: qrY, w: qrSize, h: qrSize });
+
+  const tx = qrX + qrSize + 0.6;
+  const tw = MX + CW - tx;
+  s.addText(
+    "今日のワークで使った「4つの問い」と、\n「できた」を結果につなげる7STEPを、\n1枚（2ページ）のPDFにまとめました。",
+    { x: tx, y: 2.55, w: tw, h: 1.7, valign: "top", fontFace: FONT, fontSize: 19, bold: true, color: C.ink, margin: 0, lineSpacing: 28 }
+  );
+  s.addText(
+    "QRコードを読み取って、お受け取りください。",
+    { x: tx, y: 4.35, w: tw, h: 0.5, valign: "top", fontFace: FONT, fontSize: 16, color: C.inkSoft, margin: 0 }
+  );
+
+  closingBanner(s, "今日の「できた」を、明日のあなたにも思い出させてあげてください。");
   folio(s, P());
 }
 
