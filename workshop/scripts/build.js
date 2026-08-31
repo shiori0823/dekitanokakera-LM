@@ -177,7 +177,7 @@ function P() { return PAGE++; }
   const s = newSlide(pres);
   shardsCover(s);
   iconCircle(s, "🌱", 5.92, 0.62, 0.85, C.coralBg, 34);
-  s.addText("9月9日（水）10:00〜11:30　｜　オンライン（Zoom）\n参加費：3,300円（感想アンケート協力で無料）", {
+  s.addText("①9月9日（水）10:00〜11:30　｜　②9月26日（土）9:30〜11:00\nオンライン（Zoom）　｜　参加費：3,300円（感想アンケート協力で無料）", {
     x: 0.8, y: 1.6, w: 11.73, h: 0.65, align: "center",
     fontFace: FONT, fontSize: 16, bold: true, color: C.coralDark, charSpacing: 1, margin: 0, lineSpacing: 26,
   });
@@ -250,7 +250,8 @@ function P() { return PAGE++; }
   eyebrow(s, "MY STORY");
   title(s, "私も「何もしていない」と思っていた");
 
-  card(s, MX, 2.0, CW, 1.95, { fill: { color: C.card } });
+  const diaryCardW = 8.9;
+  card(s, MX, 2.0, diaryCardW, 1.95, { fill: { color: C.card } });
   pill(s, "2025年11月5日の日記", MX + 0.4, 2.28, 2.6, 0.42, C.white, C.gold, 13);
   s.addText(
     [
@@ -258,10 +259,26 @@ function P() { return PAGE++; }
       { text: "「私の口癖、何もしていない。」", options: {} },
     ],
     {
-      x: MX + 0.4, y: 2.85, w: CW - 0.8, h: 0.95, valign: "top",
+      x: MX + 0.4, y: 2.85, w: diaryCardW - 0.8, h: 0.95, valign: "top",
       fontFace: FONT, fontSize: 22, bold: true, color: C.ink, margin: 0, paraSpaceAfter: 8,
     }
   );
+
+  // 実際の日記の写真（ポラロイド風にわずかに傾けて配置）
+  {
+    const photoW = 2.5;
+    const photoH = 3.33;
+    const photoX = MX + CW - photoW;
+    const photoY = 2.0;
+    card(s, photoX - 0.09, photoY - 0.09, photoW + 0.18, photoH + 0.18, {
+      fill: { color: C.white }, line: { color: C.line, width: 1 }, rectRadius: 0.04, rotate: 3,
+      shadow: { type: "outer", color: "4A3B30", opacity: 0.25, blur: 8, offset: 3, angle: 90 },
+    });
+    s.addImage({
+      path: path.join(__dirname, "..", "images", "diary-2025-11-05.jpg"),
+      x: photoX, y: photoY, w: photoW, h: photoH, rotate: 3,
+    });
+  }
 
   const tags = ["子育て", "ジム経営", "パワーリフティング"];
   let tx = MX;
